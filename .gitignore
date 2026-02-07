@@ -33,9 +33,30 @@ migrate_working_dir/
 /coverage/
 
 /example
-/test
+# Exclude test files from pub.dev
+# Build artifacts
+build/
+.dart_tool/
+.flutter-plugins-dependencies
+.packages
 
-test/kclogin_flutter_method_channel_test.dart
-test/kclogin_flutter_test.dart
+# Generated docs
+**/doc/api/
 
+# IDE files
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
 
+# OS files
+.DS_Store
+*.log
+*.class
+
+# Example app files (optional)
+example/.git
+
+# Tests (do not publish)
+test/*
