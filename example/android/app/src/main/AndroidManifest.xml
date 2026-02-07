@@ -33,7 +33,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-                    <meta-data
+        <meta-data
             android:name="com.kingschat.sdk.ApplicationId"
             android:value="3db3da78-c576-4dc7-a3bb-e482988a0c62" />
     </application>
