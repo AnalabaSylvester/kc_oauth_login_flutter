@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yourdomain.kclogin_flutter">
+
+    <!-- Required so Android 11+ can discover Kings app / auth handler -->
+    <queries>
+
+        <!-- Native Kings app package (if installed) -->
+        <package android:name="com.joinkingschat.android" />
+
+        <!-- Custom scheme used for auth -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="kingslogin" />
+        </intent>
+
+    </queries>
+
+</manifest>
