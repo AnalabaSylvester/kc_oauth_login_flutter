@@ -33,3 +33,5 @@ migrate_working_dir/
 /coverage/
 
 /example
+/test
+
