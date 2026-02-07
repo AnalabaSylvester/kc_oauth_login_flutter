@@ -35,3 +35,7 @@ migrate_working_dir/
 /example
 /test
 
+test/kclogin_flutter_method_channel_test.dart
+test/kclogin_flutter_test.dart
+
+
