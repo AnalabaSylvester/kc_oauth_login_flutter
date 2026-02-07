@@ -11,7 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: LoginExampleScreen());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginExampleScreen(),
+    );
   }
 }
 
@@ -39,11 +42,13 @@ class _LoginExampleScreenState extends State<LoginExampleScreen> {
       await _kingsLogin.init();
 
       // Launch OAuth flow
-      final result = await _kingsLogin.login(['user', 'email', 'profile']);
+      final result = await _kingsLogin.login(['user']);
 
       setState(() {
         _status =
             'Success!\nAuth code: ${result.authorizationCode}\nAccepted scopes: ${result.scopes.accepted.join(", ")}';
+
+            // handle authorization code and access token in the backend 
       });
     } on KingsLoginException catch (e) {
       setState(() {
@@ -63,21 +68,39 @@ class _LoginExampleScreenState extends State<LoginExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('KC Login Plugin Example')),
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
+        title: const Text('Login', style: TextStyle(color: Colors.white)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(_status, textAlign: TextAlign.center),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: _loading ? null : _startLogin,
-              child: _loading
-                  ? const CircularProgressIndicator()
-                  : const Text('Login with Kings'),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: .center,
+            crossAxisAlignment: .center,
+            children: [
+              Text(_status, textAlign: TextAlign.center),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: .infinity,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                    shape: RoundedRectangleBorder(borderRadius: .circular(10)),
+                  ),
+                  onPressed: _loading ? null : _startLogin,
+                  child: _loading
+                      ? const CircularProgressIndicator()
+                      : const Text(
+                          'Login with KingsChat',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

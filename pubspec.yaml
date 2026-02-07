@@ -1,6 +1,6 @@
 name: kclogin_flutter
 description: "Kings chat login flutter package ."
-version: 1.0.0
+version: 1.1.1
 homepage: "https://github.com/AnalabaSylvester/kc_oauth_login_flutter"
 
 environment:
